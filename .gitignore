@@ -1,0 +1,79 @@
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# ==============================
+# Django
+# ==============================
+
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Django local settings
+local_settings.py
+
+# ==============================
+# Environment / Secrets
+# ==============================
+
+.env
+.env.*
+!.env.example
+
+# ==============================
+# Celery
+# ==============================
+
+celerybeat-schedule
+celerybeat-schedule.*
+
+# ==============================
+# IDE / Editor
+# ==============================
+
+.vscode/
+.idea/
+
+# ==============================
+# OS generated files
+# ==============================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Testing / Coverage
+# ==============================
+
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ==============================
+# Build / Distribution
+# ==============================
+
+build/
+dist/
+*.egg-info/
+
+# ==============================
+# Git
+# ==============================
+
+*.swp
+*.swo

@@ -1,0 +1,227 @@
+{
+  "info": {
+    "name": "Music Recommendation API",
+    "description": "Postman collection for Music Recommendation Backend APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost"
+    },
+    {
+      "key": "user_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create / Update User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Swaroop\",\n  \"email\": \"swaroop@test.com\",\n  \"preferences\": {\n    \"genres\": [\"pop\", \"rock\"],\n    \"artists\": [\"Coldplay\"],\n    \"moods\": [\"happy\", \"energetic\"]\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/users/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Users",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/users/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/users/{{user_id}}/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "{{user_id}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recommendations",
+      "item": [
+        {
+          "name": "Refresh Recommendations",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{base_url}}/api/recommendations/{{user_id}}/refresh/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "recommendations",
+                "{{user_id}}",
+                "refresh"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Recommendations",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/recommendations/{{user_id}}/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "recommendations",
+                "{{user_id}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Activity",
+      "item": [
+        {
+          "name": "Create Activity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": {{user_id}},\n  \"track_id\": \"3RiPr603aXAoi4GHyXx0uy\",\n  \"action\": \"play\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/activity/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "activity"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Activities",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/activity/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "activity"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Summary",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/analytics/summary/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "analytics",
+                "summary"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Trends",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/analytics/trends/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "analytics",
+                "trends"
+              ]
+            }
+          }
+        },
+        {
+          "name": "User Analytics",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/analytics/user/{{user_id}}/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "analytics",
+                "user",
+                "{{user_id}}"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
