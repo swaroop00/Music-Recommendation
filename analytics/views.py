@@ -1,3 +1,5 @@
+"""Analytics API views for summaries, trends, and user metrics."""
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -11,6 +13,7 @@ from activities.models import UserActivity
 class AnalyticsSummaryView(APIView):
 
     def get(self, request):
+        """Return summary counts for users and activity events."""
         total_users = UserProfile.objects.count()
         total_activities = UserActivity.objects.count()
 
@@ -34,6 +37,7 @@ class AnalyticsSummaryView(APIView):
 class AnalyticsTrendsView(APIView):
 
     def get(self, request):
+        """Return the most common user actions across all activity records."""
         trending_actions = (
             UserActivity.objects
             .values("action")
@@ -52,6 +56,7 @@ class AnalyticsTrendsView(APIView):
 class UserAnalyticsView(APIView):
 
     def get(self, request, user_id):
+        """Return engagement metrics for a single user."""
         try:
             user = UserProfile.objects.get(id=user_id)
         except UserProfile.DoesNotExist:

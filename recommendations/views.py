@@ -1,3 +1,5 @@
+"""API views for recommendation retrieval and refresh actions."""
+
 from django.db.migrations import serializer
 from django.shortcuts import render
 from rest_framework import status, viewsets
@@ -17,6 +19,7 @@ class RecommendationViewSet(viewsets.ModelViewSet):
         url_path=r"(?P<user_id>\d+)"
     )
     def user_recommendations(self, request, user_id=None):
+        """Fetch a user's latest recommendation from cache or database."""
         cache_key = f"recommendations:user:{user_id}"
         cached_data = cache.get(cache_key)
 
@@ -67,6 +70,7 @@ class RecommendationViewSet(viewsets.ModelViewSet):
         url_path=r"(?P<user_id>\d+)/refresh"
     )
     def refresh(self, request, user_id=None):
+        """Queue a background refresh for the user's recommendations."""
         refresh_recommendations.delay(user_id)
 
         return Response(

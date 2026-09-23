@@ -1,3 +1,5 @@
+"""Serializers for recommendation objects and responses."""
+
 from rest_framework import serializers
 from .models import Recommendation
 

@@ -1,3 +1,5 @@
+"""User profile model for application accounts and preferences."""
+
 from django.db import models
 
 class UserProfile(models.Model):
@@ -9,4 +11,5 @@ class UserProfile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
+        """Return the user's name and email in a readable format."""
         return f"{self.name} ({self.email})"   

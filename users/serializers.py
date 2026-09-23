@@ -1,3 +1,5 @@
+"""Serializers for user profile data."""
+
 from rest_framework import serializers
 from .models import UserProfile
 

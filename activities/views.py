@@ -1,3 +1,5 @@
+"""API endpoints for managing user activity records."""
+
 from rest_framework import viewsets
 
 from .models import UserActivity

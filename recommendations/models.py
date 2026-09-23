@@ -1,3 +1,5 @@
+"""Recommendation models for Spotify-based music suggestions."""
+
 from django.db import models
 from users.models import UserProfile
 
@@ -9,4 +11,5 @@ class Recommendation(models.Model):
     expires_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
+        """Return a readable label for this recommendation record."""
         return f"Recommendation for {self.user.email} - {self.created_at}"

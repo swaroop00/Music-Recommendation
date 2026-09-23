@@ -1,3 +1,5 @@
+"""Background tasks for refreshing Spotify recommendations."""
+
 from celery import shared_task
 from django.utils import timezone
 from django.core.cache import cache
@@ -10,6 +12,7 @@ from .models import Recommendation
 
 @shared_task
 def refresh_recommendations(user_id):
+    """Build fresh Spotify recommendations for a single user."""
     user = UserProfile.objects.get(id=user_id)
 
     preferences = user.preferences or {}
@@ -74,6 +77,7 @@ def refresh_recommendations(user_id):
 
 @shared_task
 def refresh_all_recommendations():
+    """Queue recommendation refresh tasks for every user."""
     users = UserProfile.objects.all()
 
     queued_users = 0

@@ -1,3 +1,5 @@
+"""Serializers for user activity API data."""
+
 from rest_framework import serializers
 from .models import UserActivity
 

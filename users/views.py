@@ -1,3 +1,5 @@
+"""API endpoints for user profile creation and lookup."""
+
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework import viewsets
@@ -10,6 +12,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     serializer_class = UserProfileSerializer
 
     def create(self, request, *args, **kwargs):
+        """Create a user or update the existing profile by email."""
         email = request.data.get('email')
         user = UserProfile.objects.filter(email=email).first()
         if user:

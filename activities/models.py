@@ -1,3 +1,5 @@
+"""Models for tracking user music activity events."""
+
 from django.db import models
 from users.models import UserProfile
 
@@ -23,4 +25,5 @@ class UserActivity(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        """Return a readable summary of the tracked activity."""
         return f"{self.user.email} - {self.track_id} - {self.action}"
